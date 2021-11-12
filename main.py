@@ -23,7 +23,10 @@ def convert():
                     phrase = text[3]+text[3+i]
             else:
                 phrase = text[3][1:]
+                
+                
             
+                            
             if star_time == False:
                 if first == True:
                     with open("output.txt", 'w+') as outfile:
@@ -37,14 +40,19 @@ def convert():
                             outfile.write(f"{index}\n")
                             outfile.write(f"{next_hours}:{next_minutes}:{next_seconds},000 --> {hours}:{minutes}:{seconds},000\n")
                             outfile.write(f"{next_phrase}\n")
-                    
+            
+            if star_time == False and index == len(lines) -1:
+                     with open("output.txt", 'a') as outfile:
+                            outfile.write(f"{index+1}\n")
+                            outfile.write(f"{hours}:{minutes}:{seconds},000 --> {hours}:{minutes}:{str(int(seconds)+2)},000\n")
+                            outfile.write(f"{phrase}\n")
+            
+            
             next_text = text
             next_hours = hours
             next_minutes = minutes
             next_seconds = seconds
             next_phrase = phrase
-
-            #checking for potencial error
             
             star_time = False
             
