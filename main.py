@@ -32,17 +32,11 @@ def convert():
                         outfile.write(f"{next_phrase}\n")
                         first = False 
                 else :
-                    if index != len(lines):
+                    
                         with open("output.txt", 'a') as outfile:
                             outfile.write(f"{index}\n")
                             outfile.write(f"{next_hours}:{next_minutes}:{next_seconds},000 --> {hours}:{minutes}:{seconds},000\n")
                             outfile.write(f"{next_phrase}\n")
-                    else:
-                        with open("output.txt", 'a') as outfile:
-                            outfile.write(f"{index}\n")
-                            outfile.write(f"{next_hours}:{next_minutes}:{next_seconds},000 --> {next_hours}:{next_minutes}:{str(int(next_seconds)+1)},000\n")
-                            outfile.write(f"{next_phrase}\n")
-                    
                     
             next_text = text
             next_hours = hours
