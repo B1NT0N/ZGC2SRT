@@ -27,20 +27,20 @@ def convert():
                     
                 if star_time == False:
                     if first == True:
-                        with open("output.txt", 'w+') as outfile:
+                        with open(f"{filename}.srt", 'w+') as outfile:
                             outfile.write(f"{index}\n")
                             outfile.write(f"{next_hours}:{next_minutes}:{next_seconds},000 --> {hours}:{minutes}:{seconds},500\n")
                             outfile.write(f"{next_phrase}\n")
                             first = False 
                     else :
                         
-                            with open("output.txt", 'a') as outfile:
+                            with open(f"{filename}.srt", 'a') as outfile:
                                 outfile.write(f"{index}\n")
                                 outfile.write(f"{next_hours}:{next_minutes}:{next_seconds},500 --> {hours}:{minutes}:{seconds},500\n")
                                 outfile.write(f"{next_phrase}\n")
                 
                 if star_time == False and index == len(lines) -1:
-                        with open("output.txt", 'a') as outfile:
+                        with open(f"{filename}.srt", 'a') as outfile:
                                 outfile.write(f"{index+1}\n")
                                 outfile.write(f"{hours}:{minutes}:{seconds},500 --> {hours}:{minutes}:{str(int(seconds)+2)},500\n")
                                 outfile.write(f"{phrase}\n")
@@ -53,13 +53,7 @@ def convert():
                 
                 star_time = False
             
-                
-                
-            
-            
-            
-            
-            
+
 if __name__ == "__main__":
     if (len(sys.argv) < 2):
         print("\n")
